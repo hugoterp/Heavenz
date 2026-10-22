@@ -154,6 +154,7 @@ export default function Home() {
                           key={product.id}
                           product={product}
                           index={index}
+                          userBlend={selected}
                         />
                       ))}
                     </AnimatePresence>
@@ -174,6 +175,9 @@ export default function Home() {
           <div className="h-px w-32 mx-auto bg-gradient-to-r from-transparent via-white/10 to-transparent mb-4" />
           <p className="text-text-secondary text-xs tracking-wider">
             HEAVENZ — Elevate Your Experience
+          </p>
+          <p className="text-text-secondary/40 text-[10px] mt-2">
+            Terpene data sourced from Leafly certified lab testing · Cosine similarity matching
           </p>
         </motion.footer>
       </div>

@@ -6,12 +6,15 @@ import { TERPENES, type Product } from "@/data/terpenes";
 interface ProductCardProps {
   product: Product & { matchScore: number };
   index: number;
+  userBlend: Record<string, number>;
 }
 
-export default function ProductCard({ product, index }: ProductCardProps) {
+export default function ProductCard({ product, index, userBlend }: ProductCardProps) {
   const topTerpenes = Object.entries(product.terpeneProfile)
     .sort(([, a], [, b]) => b - a)
-    .slice(0, 3);
+    .slice(0, 4);
+
+  const userTotal = Object.values(userBlend).reduce((s, v) => s + v, 0);
 
   return (
     <motion.div
@@ -54,15 +57,15 @@ export default function ProductCard({ product, index }: ProductCardProps) {
               className="w-14 h-14 rounded-full flex items-center justify-center border-2"
               style={{
                 borderColor:
-                  product.matchScore > 80
+                  product.matchScore > 70
                     ? "#22d3ee"
-                    : product.matchScore > 60
+                    : product.matchScore > 45
                     ? "#a855f7"
                     : "#64748b",
                 boxShadow:
-                  product.matchScore > 80
+                  product.matchScore > 70
                     ? "0 0 15px rgba(34,211,238,0.3)"
-                    : product.matchScore > 60
+                    : product.matchScore > 45
                     ? "0 0 15px rgba(168,85,247,0.3)"
                     : "none",
               }}
@@ -72,9 +75,9 @@ export default function ProductCard({ product, index }: ProductCardProps) {
                   className="text-sm font-bold"
                   style={{
                     color:
-                      product.matchScore > 80
+                      product.matchScore > 70
                         ? "#22d3ee"
-                        : product.matchScore > 60
+                        : product.matchScore > 45
                         ? "#a855f7"
                         : "#94a3b8",
                   }}
@@ -94,31 +97,60 @@ export default function ProductCard({ product, index }: ProductCardProps) {
           {product.description}
         </p>
 
-        {/* Terpene Mini Bars */}
-        <div className="space-y-2 mb-4">
-          {topTerpenes.map(([terpeneId, value]) => {
+        {/* Terpene Comparison Bars: User Blend vs Strain Profile */}
+        <div className="space-y-2.5 mb-4">
+          <div className="flex items-center justify-between mb-1">
+            <span className="text-[9px] uppercase tracking-wider text-text-secondary">Terpene Profile Comparison</span>
+            <div className="flex items-center gap-3">
+              <span className="flex items-center gap-1 text-[9px] text-accent-cyan">
+                <span className="w-3 h-1 rounded-full bg-accent-cyan inline-block" /> You
+              </span>
+              <span className="flex items-center gap-1 text-[9px] text-accent-purple">
+                <span className="w-3 h-1 rounded-full bg-accent-purple inline-block" /> Strain
+              </span>
+            </div>
+          </div>
+          {topTerpenes.map(([terpeneId, strainValue]) => {
             const terpene = TERPENES.find((t) => t.id === terpeneId);
             if (!terpene) return null;
+            const userNorm = userTotal > 0 ? (userBlend[terpeneId] || 0) / userTotal : 0;
             return (
-              <div key={terpeneId} className="flex items-center gap-2">
-                <span className="text-xs w-20 truncate" style={{ color: terpene.color }}>
-                  {terpene.icon} {terpene.name}
-                </span>
-                <div className="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: `${value * 100}%` }}
-                    transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
-                    className="h-full rounded-full"
-                    style={{
-                      background: `linear-gradient(90deg, ${terpene.color}66, ${terpene.color})`,
-                      boxShadow: `0 0 8px ${terpene.color}44`,
-                    }}
-                  />
+              <div key={terpeneId}>
+                <div className="flex items-center gap-2 mb-0.5">
+                  <span className="text-[10px] w-20 truncate" style={{ color: terpene.color }}>
+                    {terpene.icon} {terpene.name}
+                  </span>
+                  <span className="text-[9px] text-text-secondary w-14 text-right tabular-nums">
+                    {Math.round(userNorm * 100)}% / {Math.round(strainValue * 100)}%
+                  </span>
                 </div>
-                <span className="text-[10px] text-text-secondary w-8 text-right">
-                  {Math.round(value * 100)}%
-                </span>
+                <div className="flex flex-col gap-0.5">
+                  {/* User blend bar */}
+                  <div className="flex-1 h-[3px] bg-white/5 rounded-full overflow-hidden">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: `${Math.min(userNorm * 200, 100)}%` }}
+                      transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
+                      className="h-full rounded-full bg-accent-cyan"
+                      style={{
+                        boxShadow: "0 0 6px rgba(0,240,255,0.3)",
+                      }}
+                    />
+                  </div>
+                  {/* Strain profile bar */}
+                  <div className="flex-1 h-[3px] bg-white/5 rounded-full overflow-hidden">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: `${strainValue * 200}%` }}
+                      transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
+                      className="h-full rounded-full"
+                      style={{
+                        background: `linear-gradient(90deg, ${terpene.color}66, ${terpene.color})`,
+                        boxShadow: `0 0 6px ${terpene.color}33`,
+                      }}
+                    />
+                  </div>
+                </div>
               </div>
             );
           })}
