@@ -124,143 +124,162 @@ export const TERPENES: Terpene[] = [
   },
 ];
 
+// Terpene profile data sourced from Leafly (leafly.com) certified lab testing.
+// Values represent approximate share of total terpene content based on Leafly's
+// ranked dominance data and published analytical ranges. Actual percentages vary
+// by grower, harvest, and batch — always check the COA for a specific product.
+// Note: valencene and bisabolol are rarely dominant in commercially tested strains.
 export const PRODUCTS: Product[] = [
   {
     id: "p1",
-    name: "Granddaddy Purple",
-    brand: "Indica",
+    name: "OG Kush",
+    brand: "Hybrid",
     type: "Flower",
-    description: "Classic indica with heavy grape and berry notes. Deep body relaxation with myrcene and linalool dominance.",
-    terpeneProfile: { myrcene: 0.85, linalool: 0.65, caryophyllene: 0.35, pinene: 0.15 },
-    rating: 4.8,
+    description: "The backbone of West Coast cannabis. Earthy, pine, and fuel aroma. Leafly: myrcene, limonene, caryophyllene.",
+    terpeneProfile: { myrcene: 0.38, limonene: 0.27, caryophyllene: 0.19, humulene: 0.09, pinene: 0.07 },
+    rating: 4.7,
     thc: 23,
-    imageGradient: "linear-gradient(135deg, #22d3ee, #c084fc)",
+    imageGradient: "linear-gradient(135deg, #22d3ee, #f97316)",
   },
   {
     id: "p2",
-    name: "Super Lemon Haze",
-    brand: "Sativa",
+    name: "Blue Dream",
+    brand: "Hybrid",
     type: "Flower",
-    description: "Award-winning sativa with sharp lemon zest and sweet candy undertones. Energetic and uplifting.",
-    terpeneProfile: { limonene: 0.90, terpinolene: 0.50, pinene: 0.40, ocimene: 0.25 },
-    rating: 4.7,
-    thc: 25,
-    imageGradient: "linear-gradient(135deg, #facc15, #4ade80)",
+    description: "Balanced hybrid with sweet berry aroma. Myrcene-dominant with pinene and caryophyllene support. Leafly's #1 strain.",
+    terpeneProfile: { myrcene: 0.45, pinene: 0.20, caryophyllene: 0.15, limonene: 0.10, linalool: 0.10 },
+    rating: 4.6,
+    thc: 21,
+    imageGradient: "linear-gradient(135deg, #22d3ee, #4ade80)",
   },
   {
     id: "p3",
-    name: "Golden Goat",
-    brand: "Hybrid",
+    name: "Granddaddy Purple",
+    brand: "Indica",
     type: "Flower",
-    description: "Tropical sativa-leaning hybrid with sweet spice. Known for its rare ocimene-forward profile.",
-    terpeneProfile: { ocimene: 0.75, caryophyllene: 0.55, myrcene: 0.40, limonene: 0.30 },
-    rating: 4.6,
+    description: "Classic indica with heavy grape and berry notes. Leafly: myrcene dominant, followed by pinene and caryophyllene.",
+    terpeneProfile: { myrcene: 0.44, pinene: 0.22, caryophyllene: 0.17, linalool: 0.10, limonene: 0.07 },
+    rating: 4.5,
     thc: 23,
-    imageGradient: "linear-gradient(135deg, #fb923c, #f97316)",
+    imageGradient: "linear-gradient(135deg, #c084fc, #22d3ee)",
   },
   {
     id: "p4",
     name: "Do-Si-Dos",
     brand: "Indica",
     type: "Flower",
-    description: "Potent indica cross of Girl Scout Cookies and Face Off OG. Floral, earthy, and deeply calming.",
-    terpeneProfile: { linalool: 0.80, myrcene: 0.60, caryophyllene: 0.45, bisabolol: 0.30 },
-    rating: 4.9,
-    thc: 28,
-    imageGradient: "linear-gradient(135deg, #c084fc, #f0abfc)",
+    description: "GSC x Face Off OG cross. Citrus brightness with peppery spice and floral twist. Leafly: limonene, caryophyllene, linalool.",
+    terpeneProfile: { limonene: 0.36, caryophyllene: 0.28, linalool: 0.18, myrcene: 0.12, humulene: 0.06 },
+    rating: 4.7,
+    thc: 21,
+    imageGradient: "linear-gradient(135deg, #facc15, #c084fc)",
   },
   {
     id: "p5",
-    name: "Jack Herer",
-    brand: "Sativa",
+    name: "Wedding Cake",
+    brand: "Hybrid",
     type: "Flower",
-    description: "Legendary sativa named after the cannabis activist. Pine-forward with herbal clarity and creative energy.",
-    terpeneProfile: { pinene: 0.85, terpinolene: 0.65, humulene: 0.35, limonene: 0.30 },
-    rating: 4.7,
-    thc: 24,
-    imageGradient: "linear-gradient(135deg, #4ade80, #a3e635)",
+    description: "Rich, tangy with earthy pepper undertones. Leafly: limonene dominant with caryophyllene and linalool.",
+    terpeneProfile: { limonene: 0.38, caryophyllene: 0.26, linalool: 0.16, myrcene: 0.12, humulene: 0.08 },
+    rating: 4.6,
+    thc: 25,
+    imageGradient: "linear-gradient(135deg, #facc15, #f0abfc)",
   },
   {
     id: "p6",
     name: "GSC (Girl Scout Cookies)",
     brand: "Hybrid",
     type: "Flower",
-    description: "Iconic hybrid with bold spice, sweet earth, and a euphoric high. Caryophyllene and humulene powerhouse.",
-    terpeneProfile: { caryophyllene: 0.80, humulene: 0.55, linalool: 0.40, myrcene: 0.35 },
-    rating: 4.8,
-    thc: 27,
+    description: "Iconic dessert strain with mint, cherry, and lemon. Leafly: caryophyllene dominant, then myrcene and limonene.",
+    terpeneProfile: { caryophyllene: 0.36, myrcene: 0.24, limonene: 0.19, humulene: 0.12, linalool: 0.09 },
+    rating: 4.4,
+    thc: 25,
     imageGradient: "linear-gradient(135deg, #f97316, #a3e635)",
   },
   {
     id: "p7",
-    name: "Tangie",
+    name: "Sour Diesel",
     brand: "Sativa",
     type: "Flower",
-    description: "Remake of Tangerine Dream with explosive citrus aroma. Valencene-rich with bright, focused effects.",
-    terpeneProfile: { valencene: 0.80, limonene: 0.70, terpinolene: 0.35, pinene: 0.25 },
-    rating: 4.6,
-    thc: 22,
-    imageGradient: "linear-gradient(135deg, #fb7185, #facc15)",
+    description: "Pungent diesel fuel aroma with citrus undertones. Leafly: caryophyllene dominant, then myrcene and limonene.",
+    terpeneProfile: { caryophyllene: 0.34, myrcene: 0.26, limonene: 0.20, pinene: 0.12, humulene: 0.08 },
+    rating: 4.5,
+    thc: 26,
+    imageGradient: "linear-gradient(135deg, #f97316, #facc15)",
   },
   {
     id: "p8",
-    name: "OG Kush",
+    name: "Gelato",
     brand: "Hybrid",
     type: "Flower",
-    description: "The backbone of West Coast genetics. Complex earthy, pine, and fuel aroma with heavy body effects.",
-    terpeneProfile: { myrcene: 0.90, caryophyllene: 0.70, limonene: 0.45, humulene: 0.30 },
-    rating: 4.9,
-    thc: 26,
-    imageGradient: "linear-gradient(135deg, #22d3ee, #f97316)",
+    description: "Sweet sherbet and lavender cookie aroma. Leafly: caryophyllene dominant with limonene and humulene.",
+    terpeneProfile: { caryophyllene: 0.32, limonene: 0.27, humulene: 0.17, myrcene: 0.14, linalool: 0.10 },
+    rating: 4.5,
+    thc: 25,
+    imageGradient: "linear-gradient(135deg, #f97316, #c084fc)",
   },
   {
     id: "p9",
-    name: "Durban Poison",
+    name: "Jack Herer",
     brand: "Sativa",
     type: "Flower",
-    description: "Pure South African landrace sativa. Sweet, spicy anise flavor with terpinolene driving creative energy.",
-    terpeneProfile: { terpinolene: 0.85, myrcene: 0.45, ocimene: 0.40, limonene: 0.25 },
-    rating: 4.5,
-    thc: 21,
-    imageGradient: "linear-gradient(135deg, #2dd4bf, #fb923c)",
+    description: "Legendary sativa named after the cannabis activist. Leafly: terpinolene dominant. Abstrax analysis: ~34% terpinolene.",
+    terpeneProfile: { terpinolene: 0.38, pinene: 0.22, caryophyllene: 0.17, myrcene: 0.13, limonene: 0.10 },
+    rating: 4.4,
+    thc: 18,
+    imageGradient: "linear-gradient(135deg, #2dd4bf, #4ade80)",
   },
   {
     id: "p10",
-    name: "Harle-Tsu",
-    brand: "CBD",
+    name: "Durban Poison",
+    brand: "Sativa",
     type: "Flower",
-    description: "High-CBD strain crossing Harlequin and Sour Tsunami. Gentle chamomile and lavender for calm without intoxication.",
-    terpeneProfile: { bisabolol: 0.80, linalool: 0.65, myrcene: 0.40, terpinolene: 0.25 },
-    rating: 4.8,
-    thc: 2,
-    imageGradient: "linear-gradient(135deg, #f0abfc, #2dd4bf)",
+    description: "Pure South African landrace sativa. Leafly: terpinolene dominant, followed by myrcene and ocimene.",
+    terpeneProfile: { terpinolene: 0.40, myrcene: 0.23, ocimene: 0.17, limonene: 0.12, pinene: 0.08 },
+    rating: 4.3,
+    thc: 20,
+    imageGradient: "linear-gradient(135deg, #2dd4bf, #fb923c)",
   },
 ];
 
+// Cosine similarity between the user's terpene preference vector and each
+// product's terpene profile. This measures directional alignment — whether
+// the product emphasizes the same terpenes the user cares about — regardless
+// of absolute slider position. A coverage term penalizes products that lack
+// terpenes the user selected.
 export function getRecommendations(
   selectedTerpenes: Record<string, number>
 ): (Product & { matchScore: number })[] {
   const activeEntries = Object.entries(selectedTerpenes).filter(([, val]) => val > 0);
   if (activeEntries.length === 0) return [];
 
+  const allIds = TERPENES.map((t) => t.id);
+  const userVec = allIds.map((id) => (selectedTerpenes[id] || 0) / 100);
+
   const scored = PRODUCTS.map((product) => {
-    let totalScore = 0;
-    let totalWeight = 0;
+    const prodVec = allIds.map((id) => product.terpeneProfile[id] || 0);
 
-    for (const [terpeneId, userValue] of activeEntries) {
-      const normalizedUser = userValue / 100;
-      const productValue = product.terpeneProfile[terpeneId] || 0;
-      const weight = normalizedUser;
-      // Score based on how close the product profile matches user preference
-      const similarity = 1 - Math.abs(normalizedUser - productValue);
-      // Boost score when product actually has this terpene
-      const presenceBonus = productValue > 0 ? 0.3 : 0;
-      totalScore += (similarity + presenceBonus) * weight;
-      totalWeight += weight;
+    let dot = 0, magU = 0, magP = 0;
+    for (let i = 0; i < allIds.length; i++) {
+      dot += userVec[i] * prodVec[i];
+      magU += userVec[i] ** 2;
+      magP += prodVec[i] ** 2;
     }
+    magU = Math.sqrt(magU);
+    magP = Math.sqrt(magP);
+    const cosSim = magU > 0 && magP > 0 ? dot / (magU * magP) : 0;
 
-    const matchScore = totalWeight > 0 ? (totalScore / totalWeight) * 100 : 0;
-    return { ...product, matchScore: Math.min(Math.round(matchScore), 99) };
+    let covered = 0, wanted = 0;
+    for (const [id, val] of activeEntries) {
+      const norm = val / 100;
+      wanted += norm;
+      covered += Math.min(norm, product.terpeneProfile[id] || 0);
+    }
+    const coverage = wanted > 0 ? covered / wanted : 0;
+
+    const raw = cosSim * 0.65 + coverage * 0.35;
+    const matchScore = Math.min(Math.round(raw * 100), 99);
+    return { ...product, matchScore };
   });
 
   return scored.sort((a, b) => b.matchScore - a.matchScore).slice(0, 5);
